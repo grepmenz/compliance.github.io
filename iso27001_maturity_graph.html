@@ -1,0 +1,16 @@
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+// Data for the graph
+DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+dataset.addValue(20, "Scores", "Initial");
+dataset.addValue(40, "Scores", "Managed");
+dataset.addValue(60, "Scores", "Defined");
+dataset.addValue(80, "Scores", "Optimized");
+
+// Create the graph
+JFreeChart chart = ChartFactory.createBarChart("ISO 27001 Maturity Graph", "Maturity Levels", "Scores", dataset);
+
+// Export the graph as an HTML file
+ChartUtilities.saveChartAsHTML(new File("iso27001_maturity_graph.html"), chart, 800, 600);
